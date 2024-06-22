@@ -18,3 +18,7 @@ Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The appl
 
 This project has been deployed in Vercel:
 https://vercel.com/gerardo-zorzonis-projects/todo-list-angular
+
+## Video
+
+https://www.loom.com/share/e2e13b54e2f844b1ae721eb53917231c
