@@ -17,7 +17,7 @@ Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The appl
 ## Deploy
 
 This project has been deployed in Vercel:
-https://vercel.com/gerardo-zorzonis-projects/todo-list-angular
+https://todo-list-angular-silk-ten.vercel.app/
 
 ## Video
 
