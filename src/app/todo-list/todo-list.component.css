@@ -1,0 +1,40 @@
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-top: 20px;
+}
+
+label {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+#submitButton {
+  margin-top: 20px;
+}
+
+#checkbox {
+  margin-left: 30px;
+}
+
+#delete {
+  width: 80px;
+}
+
+#edit {
+  width: 80px;
+}
+#save {
+  width: 80px;
+}
+
+.edit {
+  border: 2px solid orange;
+}
+
+.notEdit {
+  border: none;
+}
+
+.crossed {
+  text-decoration: line-through;
+}

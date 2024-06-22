@@ -1,0 +1,132 @@
+<div class="container">
+  <h1>Lista de Tareas</h1>
+  <hr />
+  <form (ngSubmit)="onSubmit(taskForm)" #taskForm="ngForm">
+    <div class="form-group">
+      <label for="task">Tarea</label>
+      <input
+        type="text"
+        class="form-control"
+        id="task"
+        placeholder="Escribe tu tarea"
+        ngModel
+        name="task"
+        #task="ngModel"
+        required
+      />
+      <small
+        *ngIf="task.invalid && task.dirty"
+        id="taskErrorMessage"
+        class="form-text text-danger"
+        >Ingresa nombre de la tarea</small
+      >
+    </div>
+    <div class="form-group">
+      <label for="taskDescription">Descripcion</label>
+      <input
+        type="text"
+        class="form-control"
+        id="taskDescription"
+        placeholder="Describe tu tarea"
+        ngModel
+        name="taskDescription"
+        required
+        #taskDescription="ngModel"
+      />
+      <small
+        *ngIf="taskDescription.invalid && taskDescription.dirty"
+        id="errorMessage"
+        class="form-text text-danger"
+        >Ingresa la descrion de la tarea</small
+      >
+    </div>
+
+    <button
+      [disabled]="taskForm.invalid"
+      id="submitButton"
+      type="submit"
+      class="btn btn-primary"
+    >
+      Agregar
+    </button>
+  </form>
+
+  <hr />
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Tarea</th>
+        <th scope="col">Descripcion</th>
+        <th scope="col">Completada</th>
+        <th scope="col">Modificar</th>
+        <th scope="col">Guardar</th>
+        <th scope="col">Borrar</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let t of taskArray; index as i">
+        <td>
+          <input
+            type="text"
+            class="form-control"
+            [ngClass]="{
+              edit: t.isEditable,
+              notEdit: !t.isEditable,
+              crossed: t.isCompleted
+            }"
+            id="taskInTable"
+            value="{{ t.taskName }}"
+            [readonly]="!t.isEditable"
+          />
+        </td>
+        <td>
+          <input
+            type="text"
+            class="form-control"
+            [ngClass]="{
+              edit: t.isEditable,
+              notEdit: !t.isEditable,
+              crossed: t.isCompleted
+            }"
+            id="taskInTableDescription"
+            value="{{ t.taskDescription }}"
+            [readonly]="!t.isEditable"
+          />
+        </td>
+
+        <td><input (change)="onCheck(i)" id="checkbox" type="checkbox" /></td>
+
+        <td>
+          <button
+            id="edit"
+            class="btn btn-primary btn-sm"
+            (click)="onEdit(i)"
+            [disabled]="t.isEditable"
+          >
+            Modificar
+          </button>
+        </td>
+        <td>
+          <button
+            id="save"
+            class="btn btn-warning btn-sm"
+            (click)="onSave(i)"
+            [disabled]="!t.isEditable"
+          >
+            Guardar
+          </button>
+        </td>
+        <td>
+          <button
+            id="delete"
+            class="btn btn-danger btn-sm"
+            (click)="onDelete(i)"
+          >
+            Borrar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
